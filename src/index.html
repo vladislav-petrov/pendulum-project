@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    >
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+    >
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,300;1,400&display=swap"
+      rel="stylesheet"
+    >
+    <link
+      rel="stylesheet"
+      href="css/style.css"
+    >
+    <script
+      defer
+      src="js/controller.js"
+    ></script>
+    <title>Пружинный маятник</title>
+  </head>
+
+  <body>
+    <div class="app-wrapper">
+      <header class="app-header">
+        <h1 class="app-header__heading">
+          Пружинный маятник
+        </h1>
+      </header>
+      <div class="app-content">
+        <div class="app-content__switch-buttons">
+          <button
+            type="button"
+            class="switch-buttons__button button--active"
+          >
+            <span class="button-text">
+              Математическая модель
+            </span>
+          </button>
+          <button
+            type="button"
+            class="switch-buttons__button"
+          >
+            <span class="button-text">
+              Интерактивная модель
+            </span>
+          </button>
+        </div>
+        <div class="app-content__model-content"></div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,472 @@
+:root {
+  --app-main-color: #f5f6fa;
+  --app-secondary-color: #fff;
+  --app-additional-color: #a6b1b6a1;
+  --app-input-warning-color: #c0392b;
+  --app-input-warning-background: #c03a2b2d;
+  --text-main-color: #636e72;
+  --text-secondary-color: #2d3436;
+}
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.app-wrapper {
+  width: 1000px;
+  margin: auto;
+  display: grid;
+
+  grid-template-areas:
+  "app-header"
+  "app-content";
+
+  grid-template-rows: 100px 1fr;
+  gap: 40px;
+}
+
+.app-header {
+  grid-area: app-header;
+
+  position: relative;
+  background-color: var(--app-main-color);
+}
+
+.app-header__heading {
+  position: absolute;
+  bottom: 0;
+  margin: 0 0 20px 20px;
+  font-weight: 400;
+  font-size: 24px;
+  color: var(--text-main-color);
+}
+
+.app-content {
+  margin-bottom: 40px;
+
+  grid-area: app-content;
+
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+
+  display: grid;
+
+  grid-template-areas:
+  "app-content__switch-buttons"
+  "app-content__model-content";
+
+  grid-template-rows: fit-content 1fr;
+}
+
+.app-content__switch-buttons {
+  grid-area: app-content__switch-buttons;
+}
+
+.switch-buttons__button {
+  display: block;
+  float: left;
+  border: none;
+  height: 60px;
+  padding: 0 20px 0 20px;
+  background-color: var(--app-secondary-color);
+  cursor: pointer;
+}
+
+.switch-buttons__button:hover {
+  background-color: var(--app-main-color);
+}
+
+.button-text {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--text-main-color);
+}
+
+.button--active {
+  background-color: var(--app-main-color) !important;
+}
+
+.app-content__model-content {
+  grid-area: app-content__model-content;
+
+  background-color: var(--app-main-color);
+}
+
+.math-model__container {
+  margin: 20px;
+  font-size: 16px;
+}
+
+.math-model__text {
+  display: block;
+  margin-bottom: 20px;
+  font-weight: 300;
+  color: var(--text-main-color);
+}
+
+.math-model__formula {
+  display: block;
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-style: italic;
+  text-align: center;
+  color: var(--text-secondary-color);
+}
+
+.math-model__divider-text {
+  display: block;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 300;
+  color: var(--text-main-color);
+}
+
+.math-model__description {
+  width: min-content;
+  font-weight: 300;
+  font-size: 16px;
+  font-style: normal;
+  color: var(--text-main-color);
+
+  display: grid;
+
+  grid-template-areas:
+  "description__intro-word description__variables description__text";
+
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.description__intro-word {
+  grid-area: description__intro-word;
+
+  width: max-content;
+}
+
+.description__variables {
+  grid-area: description__variables;
+
+  width: max-content;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-secondary-color);
+}
+
+.description__text {
+  grid-area: description__text;
+
+  width: max-content;
+}
+
+.variables__item,
+.text__item {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.variables__item:last-child,
+.text__item:last-child {
+  margin-bottom: 0;
+}
+
+.int-model-container {
+  margin: 20px;
+
+  display: grid;
+
+  grid-template-areas:
+  "int-model-description int-model-description"
+  "int-model-visualization int-model-parameters"
+  "int-model-visualization int-model-characteristics";
+
+  grid-template-columns: 540px min-content;
+  grid-template-rows: min-content;
+  gap: 30px;
+}
+
+.int-model-description {
+  grid-area: int-model-description;
+}
+
+.int-model-parameters {
+  grid-area: int-model-parameters;
+}
+
+.int-model-characteristics {
+  grid-area: int-model-characteristics;
+}
+
+.int-model-description__text {
+  display: block;
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--text-main-color);
+  line-height: 24px;
+}
+
+.parameters-heading,
+.characteristics-heading {
+  margin: 0 0 20px 0;
+  height: 20px;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--text-main-color);
+}
+
+.visualization-content,
+.parameters-content,
+.characteristics-content {
+  background-color: var(--app-secondary-color);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.parameter-block {
+  padding: 20px;
+
+  display: grid;
+
+  grid-template-areas:
+  "parameter-heading parameter-heading parameter-heading parameter-heading"
+  "parameter-literal parameter-colon parameter-value parameter-unit";
+
+  grid-template-columns: 24px min-content min-content 42px;
+
+  border-bottom: 1px solid var(--app-additional-color);
+}
+
+.parameter-block:last-child {
+  border: none;
+}
+
+.parameter-block span {
+  display: block;
+}
+
+.parameter-heading {
+  grid-area: parameter-heading;
+
+  margin: 0 0 12px 0;
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--text-main-color);
+}
+
+.parameter-literal {
+  grid-area: parameter-literal;
+
+  font-weight: 400;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--text-secondary-color);
+}
+
+.parameter-colon {
+  grid-area: parameter-colon;
+
+  margin-right: 162px;
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--text-main-color);
+}
+
+.parameter-value {
+  grid-area: parameter-value;
+
+  margin-right: 10px;
+}
+
+.parameter-unit {
+  grid-area: parameter-unit;
+
+  font-weight: 400;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--text-main-color);
+}
+
+.parameter-value__input {
+  border: 1px solid var(--app-additional-color);
+  width: 100px;
+  margin-bottom: 5px;
+  padding: 0;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--text-secondary-color);
+}
+
+.parameter-value__input:focus {
+  outline: none;
+  background-color: var(--app-main-color);
+}
+
+.input--warning {
+  border: 1px solid var(--app-input-warning-color) !important;
+}
+
+.input--warning:focus {
+  background-color: var(--app-input-warning-background) !important;
+}
+
+.parameter-value__description {
+  text-align: center;
+  font-weight: 300;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--text-main-color);
+}
+
+.characteristic-block {
+  padding: 20px;
+
+  display: grid;
+
+  grid-template-areas:
+  "characteristic-heading characteristic-heading characteristic-heading characteristic-heading"
+  "characteristic-literal characteristic-colon characteristic-value characteristic-unit";
+
+  grid-template-columns: 24px min-content min-content 42px;
+
+  border-bottom: 1px solid var(--app-additional-color);
+}
+
+.characteristic-block:last-child {
+  border: none;
+}
+
+.characteristic-block span {
+  display: block;
+}
+
+.characteristic-heading {
+  grid-area: characteristic-heading;
+
+  margin: 0 0 12px 0;
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--text-main-color);
+}
+
+.characteristic-literal {
+  grid-area: characteristic-literal;
+
+  font-weight: 400;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--text-secondary-color);
+}
+
+.characteristic-colon {
+  grid-area: characteristic-colon;
+
+  margin-right: 162px;
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--text-main-color);
+}
+
+.characteristic-value {
+  grid-area: characteristic-value;
+
+  margin-right: 10px;
+  width: 102px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--text-secondary-color);
+}
+
+.characteristic-unit {
+  grid-area: characteristic-unit;
+
+  font-weight: 400;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--text-main-color);
+}
+
+.int-model-visualization {
+  grid-area: int-model-visualization;
+
+  display: grid;
+
+  grid-template-areas:
+  "visualization-heading"
+  "visualization-content";
+
+  grid-template-rows: 20px 1fr;
+
+  gap: 20px;
+}
+
+.visualization-heading {
+  grid-area: visualization-heading;
+
+  margin: 0;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--text-main-color);
+}
+
+.visualization-content {
+  grid-area: visualization-content;
+
+  display: grid;
+
+  grid-template-areas:
+  "visualization-svg"
+  "visualization-button";
+
+  grid-template-rows: 1fr 60px;
+}
+
+.visualization-svg {
+  display: block;
+  margin: auto;
+  grid-area: visualization-svg;
+}
+
+.visualization-button {
+  grid-area: visualization-button;
+  padding: 0;
+  margin: 0 150px 20px 150px;
+  border: 1px solid var(--app-additional-color);
+  background-color: var(--app-secondary-color);
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--text-main-color);
+  cursor: pointer;
+
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.visualization-button:hover {
+  background-color: var(--app-main-color);
+}
+
+.button--disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.input--disabled {
+  opacity: 0.5;
+}
